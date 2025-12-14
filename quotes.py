@@ -18,7 +18,8 @@ def load_quotes():
         {"text": "Hard work beats talent when talent doesn’t work hard.", "author": "Tim Notke"},
         {"text": "Success doesn’t just find you. You have to go out and get it.", "author": "Unknown"},
         {"text": "Great things never come from comfort zones.", "author": "Unknown"},
-        {"text": "Stay positive, work hard, make it happen.", "author": "Unknown"}
+        {"text": "Stay positive, work hard, make it happen.", "author": "Unknown"},
+	{"text": "Small steps every day lead to big results.", "author": "Unknown"},
     ]
 
 def show_header():
