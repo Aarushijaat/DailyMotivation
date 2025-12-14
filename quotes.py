@@ -26,7 +26,7 @@ def show_header():
     """Displays program header with date"""
     today = datetime.date.today()
     print("\n="*30)
-    print("   DAILY MOTIVATION QUOTES   ")
+    print("   DAILY MOTIVATION QUOTES   ") #Bugfix branch change
     print(f"        {today}        ")
     print("=\n"*30)
 
