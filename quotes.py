@@ -24,10 +24,10 @@ def load_quotes():
 def show_header():
     """Displays program header with date"""
     today = datetime.date.today()
-    print("\n==============================")
+    print("\n="*30)
     print("   DAILY MOTIVATION QUOTES   ")
     print(f"        {today}        ")
-    print("==============================\n")
+    print("=\n"*30)
 
 def get_random_quote(quotes):
     """Selects and returns a random quote"""
