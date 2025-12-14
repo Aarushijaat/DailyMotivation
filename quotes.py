@@ -19,7 +19,8 @@ def load_quotes():
         {"text": "Success doesn’t just find you. You have to go out and get it.", "author": "Unknown"},
         {"text": "Great things never come from comfort zones.", "author": "Unknown"},
         {"text": "Stay positive, work hard, make it happen.", "author": "Unknown"},
-	{"text": "Small steps every day lead to big results.", "author": "Unknown"},
+	{"text": "Small steps every day lead to big results.", "author": "Unknown},
+	{"text": "Success doesn’t come from what you do occasionally, it comes from what you do consistently.", "author": "Marie Forleo"},
     ]
 
 def show_header():
