@@ -25,7 +25,7 @@ def load_quotes():
 def show_header():
     today = datetime.date.today()
     print("\n" + "="*50)  # experiment: wider header separator
-    print("   DAILY MOTIVATION QUOTES   ")
+    print("   DAILY MOTIVATION QUOTES   ") #Experiment branch change
     print(f"        {today}        ")
     print("="*50 + "\n")
 
