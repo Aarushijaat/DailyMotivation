@@ -62,6 +62,12 @@ def main():
         else:
             print("\nInvalid choice. Please try again.\n")
             input("Press Enter to continue...")
+# ===== Add the test function at the very bottom =====
+def test_total_quotes():
+    print(f"Total motivational quotes available: {len(quotes)}")
+
+# Call the test function
+test_total_quotes()
 
 if __name__ == "__main__":
     main()
