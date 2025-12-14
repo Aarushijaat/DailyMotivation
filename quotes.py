@@ -24,12 +24,12 @@ def load_quotes():
     ]
 
 def show_header():
-    """Displays program header with date"""
     today = datetime.date.today()
-    print("\n="*30)
-    print("   DAILY MOTIVATION QUOTES   ")
+    print("\n" + "="*50)  # experiment: wider header separator
+    print("   DAILY MOTIVATION QUOTES   ") #Experiment branch change
     print(f"        {today}        ")
-    print("=\n"*30)
+    print("="*50 + "\n")
+
 
 def get_random_quote(quotes):
     """Selects and returns a random quote"""
