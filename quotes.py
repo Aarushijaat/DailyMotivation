@@ -25,8 +25,12 @@ def load_quotes():
 
 def show_header():
     today = datetime.date.today()
+
     print("\n" + "="*50)  # experiment: wider header separator
     print("   DAILY MOTIVATION QUOTES   ") #Experiment branch change
+    print("\n="*30)
+    print("   DAILY MOTIVATION QUOTES   ") #Bugfix branch change
+ bugfix
     print(f"        {today}        ")
     print("="*50 + "\n")
 
@@ -41,6 +45,7 @@ def display_quote(quote):
     print(f"— {quote['author']}\n")
 
 def menu():
+    print("\n")  # fix: add blank line for better readability
     """Displays menu options"""
     print("1. Show a motivational quote")
     print("2. Exit")
