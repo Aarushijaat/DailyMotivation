@@ -1,5 +1,7 @@
 import random
 import datetime
+# This program displays daily motivational quotes
+# Developed for Git Bash & GitHub project
 
 def load_quotes():
     """
