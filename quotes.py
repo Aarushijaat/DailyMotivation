@@ -40,6 +40,7 @@ def display_quote(quote):
     print(f"— {quote['author']}\n")
 
 def menu():
+    print("\n")  # fix: add blank line for better readability
     """Displays menu options"""
     print("1. Show a motivational quote")
     print("2. Exit")
