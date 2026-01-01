@@ -70,3 +70,22 @@ const toggleMenu = () => {
     const navLinks = document.querySelector('.nav-links');
     navLinks.classList.toggle('active');
 };
+
+document.getElementById("share-btn").addEventListener("click", function() {
+    const quote = document.getElementById("main-quote").innerText;
+    const author = document.getElementById("main-author").innerText;
+    const textToShare = `${quote} ${author}`;
+
+    if (navigator.share) {
+        navigator.share({
+            title: "Daily Motivation Quote",
+            text: textToShare,
+        }).then(() => console.log("Shared successfully"))
+          .catch((err) => console.log("Error sharing", err));
+    } else {
+        // fallback: copy to clipboard
+        navigator.clipboard.writeText(textToShare).then(() => {
+            alert("Quote copied to clipboard!");
+        });
+    }
+});
