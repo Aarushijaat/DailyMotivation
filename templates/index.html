@@ -168,9 +168,18 @@
             <p class="quote-author" id="main-author">— Steve Jobs</p>
             <br>
             <button class="btn" onclick="generateQuote()">Get New Quote</button>
-        </div>
+	    <button class="btn" onclick="shareQuote()" style="margin-left:10px;">
+            Share Quote
+        </button>
+     </div>
     </section>
-
+    <section class="featured">
+    <div class="quote-box">
+        <h2 style="margin-bottom:20px;">🌟 Quote of the Day</h2>
+        <p class="quote-text" id="daily-quote"></p>
+        <p class="quote-author" id="daily-author"></p>
+    </div>
+</section>
     <section class="gallery" id="gallery">
         <h2 class="section-title">Daily Inspiration</h2>
         <div class="grid">
@@ -231,41 +240,44 @@
         <p>&copy; 2025 Inspiria Quotes. All rights reserved.</p>
     </footer>
 
-    <script>
-    const quotes = [
-        { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
-        { text: "Everything you've ever wanted is on the other side of fear.", author: "George Addair" },
-        { text: "The best way to predict the future is to create it.", author: "Abraham Lincoln" },
-        { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
-        { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
-        { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
-        { text: "The future depends on what you do today.", author: "Mahatma Gandhi" },
-        { text: "Dream big and dare to fail.", author: "Norman Vaughan" },
-        { text: "Push yourself, because no one else is going to do it for you.", author: "Unknown" },
-        { text: "Hard work beats talent when talent doesn’t work hard.", author: "Tim Notke" },
-        { text: "Success doesn’t just find you. You have to go out and get it.", author: "Unknown" },
-        { text: "Great things never come from comfort zones.", author: "Unknown" },
-        { text: "Stay positive, work hard, make it happen.", author: "Unknown" },
-        { text: "Small steps every day lead to big results.", author: "Unknown" },
-        { text: "Success doesn’t come from what you do occasionally, it comes from what you do consistently.", author: "Marie Forleo" }
-    ];
+    
+   <script>
+const quotes = [
+    { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+    { text: "Everything you've ever wanted is on the other side of fear.", author: "George Addair" },
+    { text: "The best way to predict the future is to create it.", author: "Abraham Lincoln" },
+    { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+    { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+    { text: "Success is not final, failure is not fatal.", author: "Winston Churchill" },
+    { text: "The future depends on what you do today.", author: "Mahatma Gandhi" },
+    { text: "Dream big and dare to fail.", author: "Norman Vaughan" },
+    { text: "Push yourself, because no one else is going to do it for you.", author: "Unknown" },
+    { text: "Hard work beats talent when talent doesn’t work hard.", author: "Tim Notke" },
+    { text: "Stay positive, work hard, make it happen.", author: "Unknown" },
+    { text: "Small steps every day lead to big results.", author: "Unknown" }
+];
 
-    function generateQuote() {
-        const quoteContainer = document.getElementById('quote-container');
-        const quoteText = document.getElementById('main-quote');
-        const quoteAuthor = document.getElementById('main-author');
+function generateQuote() {
+    const random = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("main-quote").innerText = `"${random.text}"`;
+    document.getElementById("main-author").innerText = `— ${random.author}`;
+}
 
-        quoteContainer.style.opacity = '0';
+function shareQuote() {
+    const text = document.getElementById("main-quote").innerText;
+    const author = document.getElementById("main-author").innerText;
+    navigator.clipboard.writeText(`${text} ${author}`);
+    alert("Quote copied! Share it anywhere 🌟");
+}
 
-        setTimeout(() => {
-            const random = quotes[Math.floor(Math.random() * quotes.length)];
-            quoteText.innerText = `"${random.text}"`;
-            quoteAuthor.innerText = `— ${random.author}`;
-            quoteContainer.style.opacity = '1';
-            quoteContainer.style.transition = 'opacity 0.5s ease';
-        }, 400);
-    }
-</script>
+// Quote of the Day (changes daily)
+window.onload = function () {
+    const index = new Date().getDate() % quotes.length;
+    document.getElementById("daily-quote").innerText = `"${quotes[index].text}"`;
+    document.getElementById("daily-author").innerText = `— ${quotes[index].author}`;
+ };
+ </script>
 
 </body>
 </html>
+
