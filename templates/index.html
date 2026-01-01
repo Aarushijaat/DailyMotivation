@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspiria | Daily Motivation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --accent-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* --- BASE STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-gradient);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        .logo { font-weight: 800; font-size: 1.6rem; color: var(--secondary-color); text-decoration: none; }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { text-decoration: none; font-weight: 500; transition: var(--transition); color: var(--text-main); }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* --- HERO SECTION WITH BACKGROUND IMAGE --- */
+        .hero {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1497561813398-8fcc7a37b567?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 15px; font-weight: 800; }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; opacity: 0.9; }
+
+        /* --- BUTTONS --- */
+        .btn {
+            padding: 14px 32px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover { 
+            background: var(--secondary-color); 
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 20px rgba(118, 75, 162, 0.3); 
+        }
+
+        /* --- FEATURED QUOTE --- */
+        .featured { padding: 60px 8%; text-align: center; }
+        .quote-box {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px;
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            border-bottom: 5px solid var(--accent-color);
+        }
+        .quote-text { font-size: 1.8rem; font-style: italic; margin-bottom: 20px; color: var(--text-main); line-height: 1.4; }
+        .quote-author { font-weight: 700; color: var(--accent-color); font-size: 1.1rem; text-transform: uppercase; }
+
+        /* --- GALLERY GRID --- */
+        .gallery { padding: 80px 8%; }
+        .section-title { text-align: center; margin-bottom: 50px; font-size: 2.5rem; font-weight: 800; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- CARD STYLING --- */
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden; /* Important for image corners */
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .card:hover .card-image { transform: scale(1.05); }
+
+        .card-content { padding: 25px; }
+        .card-content p { font-style: italic; margin-bottom: 15px; font-size: 1.1rem; }
+        .card-content span { font-weight: 700; color: var(--secondary-color); font-size: 0.9rem; }
+
+        /* --- CONTACT & FOOTER --- */
+        .contact { padding: 80px 8%; background: rgba(255,255,255,0.5); text-align: center; }
+        footer { padding: 40px; text-align: center; background: #1e272e; color: #bdc3c7; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .quote-box { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">INSPIRIA</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Fuel Your Ambition</h1>
+        <p>Transform your mindset with daily doses of wisdom from the world's greatest thinkers.</p>
+        <a href="#gallery" class="btn">View Daily Quotes</a>
+    </section>
+
+    <section class="featured">
+        <div class="quote-box" id="quote-container">
+            <p class="quote-text" id="main-quote">"The only way to do great work is to love what you do."</p>
+            <p class="quote-author" id="main-author">— Steve Jobs</p>
+            <br>
+            <button class="btn" onclick="generateQuote()">Get New Quote</button>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">Daily Inspiration</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" alt="Nature" class="card-image">
+                <div class="card-content">
+                    <p>"Believe you can and you're halfway there."</p>
+                    <span>— Theodore Roosevelt</span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=500&q=80" alt="Forest" class="card-image">
+                <div class="card-content">
+                    <p>"Act as if what you do makes a difference. It does."</p>
+                    <span>— William James</span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=500&q=80" alt="Trees" class="card-image">
+                <div class="card-content">
+                    <p>"Success is not final, failure is not fatal."</p>
+                    <span>— Winston Churchill</span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=500&q=80" alt="Lake" class="card-image">
+                <div class="card-content">
+                    <p>"Keep your face always toward the sunshine."</p>
+                    <span>— Walt Whitman</span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=500&q=80" alt="Bridge" class="card-image">
+                <div class="card-content">
+                    <p>"Limit your 'always' and your 'nevers'."</p>
+                    <span>— Amy Poehler</span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=500&q=80" alt="Valley" class="card-image">
+                <div class="card-content">
+                    <p>"Life is what happens when you're busy making other plans."</p>
+                    <span>— John Lennon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Join Our Community</h2>
+        <p>Sign up for our weekly newsletter for the best wisdom delivered to your inbox.</p>
+        <br>
+        <input type="email" placeholder="Enter your email" style="padding: 12px 20px; border-radius: 25px; border: 1px solid #ddd; width: 250px; margin-bottom: 10px;">
+        <button class="btn">Subscribe</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Inspiria Quotes. All rights reserved.</p>
+    </footer>
+
+    <script>
+    const quotes = [
+        { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+        { text: "Everything you've ever wanted is on the other side of fear.", author: "George Addair" },
+        { text: "The best way to predict the future is to create it.", author: "Abraham Lincoln" },
+        { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+        { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+        { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
+        { text: "The future depends on what you do today.", author: "Mahatma Gandhi" },
+        { text: "Dream big and dare to fail.", author: "Norman Vaughan" },
+        { text: "Push yourself, because no one else is going to do it for you.", author: "Unknown" },
+        { text: "Hard work beats talent when talent doesn’t work hard.", author: "Tim Notke" },
+        { text: "Success doesn’t just find you. You have to go out and get it.", author: "Unknown" },
+        { text: "Great things never come from comfort zones.", author: "Unknown" },
+        { text: "Stay positive, work hard, make it happen.", author: "Unknown" },
+        { text: "Small steps every day lead to big results.", author: "Unknown" },
+        { text: "Success doesn’t come from what you do occasionally, it comes from what you do consistently.", author: "Marie Forleo" }
+    ];
+
+    function generateQuote() {
+        const quoteContainer = document.getElementById('quote-container');
+        const quoteText = document.getElementById('main-quote');
+        const quoteAuthor = document.getElementById('main-author');
+
+        quoteContainer.style.opacity = '0';
+
+        setTimeout(() => {
+            const random = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteText.innerText = `"${random.text}"`;
+            quoteAuthor.innerText = `— ${random.author}`;
+            quoteContainer.style.opacity = '1';
+            quoteContainer.style.transition = 'opacity 0.5s ease';
+        }, 400);
+    }
+</script>
+
+</body>
+</html>
